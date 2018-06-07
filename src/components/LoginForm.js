@@ -15,8 +15,8 @@ class LoginForm extends Component {
   }
 
   onButtonPress(){
-    const { email, password } = this.props;
-    this.props.loginUser({ email, password });
+    const { email, password, navigation } = this.props;
+    this.props.loginUser({ email, password, navigation });
   }
 
   renderError(){
@@ -87,11 +87,7 @@ const styles = {
 const mapStateToProps = ({ auth }) => {
   const { email, password, error, loading } = auth;
   return { email, password, error, loading };
-  // return {
-  //   email: state.auth.email,
-  //   password: state.auth.password,
-  //   error: state.auth.error
-  // };
+
 };
 
 export default connect(mapStateToProps, {

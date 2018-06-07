@@ -5,6 +5,7 @@ import reducers from './reducers';
 import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
 import LoginForm from './components/LoginForm';
+import Router from './Router';
 /*
   Provider tag is what connects to all different
   connect tags.
@@ -29,7 +30,7 @@ class App extends Component {
 
     return(
       <Provider store={store}>
-        <LoginForm />
+        <Router />
       </Provider>
 
     );
