@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import {
-  EMPLOYEE_UPDATE
+  EMPLOYEE_UPDATE,
+  EMPLOYEE_CREATE
 } from './types';
 
 export const employeeUpdate = ({ prop, value }) => {
@@ -13,10 +14,11 @@ export const employeeUpdate = ({ prop, value }) => {
 export const employeeCreate = ({ name, phone, shift, navigation }) => {
   const { currentUser } = firebase.auth();
 
-  return () => {
+  return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
      .push({ name, phone, shift })
      .then(() => {
+       dispatch({ type: EMPLOYEE_CREATE });
        navigation.navigate('employeeList');
      });
    };
