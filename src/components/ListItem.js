@@ -8,14 +8,11 @@ export default class ListItem extends Component {
   /*<TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>*/
 
   onRowPress(){
-    // const {employee} = this.props;
-     console.log(this.props.employee);
-
-    this.props.navigation.navigate('employeeCreate', {
+    this.props.navigation.navigate('employeeEdit', {
       employee: this.props.employee
     });
   }
-//
+
   render() {
     const { name } = this.props.employee;
     return(

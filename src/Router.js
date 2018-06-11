@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import LoginForm from './components/LoginForm';
 import EmployeeList from './components/EmployeeList';
 import EmployeeCreate from './components/EmployeeCreate';
+import EmployeeEdit from './components/EmployeeEdit';
 
 const Router = createStackNavigator({
   login: {
@@ -24,6 +25,12 @@ const Router = createStackNavigator({
     screen: EmployeeCreate,
     navigationOptions: ({ navigation }) => ({
       title: 'Create Employee',
+    })
+  },
+  employeeEdit: {
+    screen: EmployeeEdit,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Edit Employee',
     })
   }
 }, {
