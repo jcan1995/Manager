@@ -48,6 +48,17 @@ export const employeeSave = ({name, phone, shift, uid, navigation}) => {
         navigation.navigate('employeeList');
       });
   }
+};
 
+export const employeeDelete = ({uid, navigation}) => {
+  const { currentUser } = firebase.auth();
+  console.log(uid);
+  return() => {
+    firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .remove()
+      .then(() => {
+        navigation.navigate('employeeList');
+      });
 
+  };
 };
